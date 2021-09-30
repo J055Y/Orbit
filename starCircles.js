@@ -1,13 +1,18 @@
 class StarCanvas {
+    /**
+     * 
+     * @param {Number} numberOfCircles 
+     * @param {Number} velocity 
+     */
     constructor(numberOfCircles, velocity) {
         this.numberOfCircles = numberOfCircles;
         this.velocity = velocity;
-        this.circles = [];
+        this.stars = [];
 
         this.init = function () {
             for (let i = 0; i < this.numberOfCircles; i++) {
                 let circle = this.createCircle();
-                this.circles.push(circle);
+                this.stars.push(circle);
             }
         };
 
@@ -38,32 +43,32 @@ class StarCanvas {
             context.fillStyle = "#000000";
             context.fillRect(0, 0, canvas.width, canvas.height, );
 
-            for (let i = 0; i < this.circles.length; i++) {
-                const circle1 = this.circles[i];
-                if ((circle1.x > 0 && circle1.x < innerWidth) &&
-                    (circle1.y > 0 && circle1.y < innerHeight)) {
-                    circle1.update();
+            for (let i = 0; i < this.stars.length; i++) {
+                const star1 = this.stars[i];
+                if ((star1.x > 0 && star1.x < innerWidth) &&
+                    (star1.y > 0 && star1.y < innerHeight)) {
+                    star1.update();
                 }
                 else {
-                    this.circles.splice(i, 1);
+                    this.stars.splice(i, 1);
                     let circle = this.createCircle();
-                    this.circles.push(circle);
+                    this.stars.push(circle);
                 }
 
-                // const DistanceBetweenMouse = Math.sqrt((this.mouseX - circle1.x) * (this.mouseX - circle1.x) + (this.mouseY - circle1.y) * (this.mouseY - circle1.y));
-                // if (DistanceBetweenMouse < circle1.r * 16) {
-                //     circle1.x = circle1.x + (this.movementX - circle1.r);
-                //     circle1.y = circle1.y + (this.movementY - circle1.r);
+                // const DistanceBetweenMouse = Math.sqrt((this.mouseX - star1.x) * (this.mouseX - star1.x) + (this.mouseY - star1.y) * (this.mouseY - star1.y));
+                // if (DistanceBetweenMouse < star1.r * 16) {
+                //     star1.x = star1.x + (this.movementX - star1.r);
+                //     star1.y = star1.y + (this.movementY - star1.r);
                 // }
                 //
-                // for (let j = 0; j < this.circles.length; j++) {
-                //     const circle2 = this.circles[j];
-                //     const circles = Math.sqrt((circle2.x - circle1.x) * (circle2.x - circle1.x) + (circle2.y - circle1.y) * (circle2.y - circle1.y));
-                //     if (circles < circle1.r * 16) {
+                // for (let j = 0; j < this.stars.length; j++) {
+                //     const star2 = this.stars[j];
+                //     const stars = Math.sqrt((star2.x - star1.x) * (star2.x - star1.x) + (star2.y - star1.y) * (star2.y - star1.y));
+                //     if (stars < star1.r * 16) {
                 //         context.beginPath();
-                //         context.moveTo(circle1.x, circle1.y);
-                //         context.lineTo(circle2.x, circle2.y);
-                //         context.strokeStyle = getStrokeStyle(circles, circle1.r);
+                //         context.moveTo(star1.x, star1.y);
+                //         context.lineTo(star2.x, star2.y);
+                //         context.strokeStyle = getStrokeStyle(stars, star1.r);
                 //         context.stroke();
                 //     }
                 // }

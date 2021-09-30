@@ -7,7 +7,7 @@ class OrbitCanvas {
     constructor(orbitArray) {
         this.orbitArray = orbitArray;
         this.sunRadius = Math.max.apply(Math, this.orbitArray.map(o => {return o.circleRadius})) + (0.1 * (height / 2));
-        this.starCanvas = new StarCanvas(30, 5);
+        this.starCanvas = new StarCanvas(30, 2);
 
         this.starCanvas.init();
 
@@ -64,7 +64,6 @@ class OrbitCanvas {
                 context.fill();
 
                 orbit.orbitTick += 1;
-
             }
         }
     }
@@ -75,19 +74,19 @@ window.onload = () => {
         {
             orbitRadius: 250,
             circleRadius: 20,
-            speed: 10,
+            speed: 3,
             colour: "#ff6600"
         },
         {
             orbitRadius: 150,
             circleRadius: 10,
-            speed: 20,
+            speed: 8,
             colour: "#ff00f2"
         },
         {
             orbitRadius: 200,
             circleRadius: 15,
-            speed: 25,
+            speed: 10,
             colour: "#50ff10"
         },
         {
